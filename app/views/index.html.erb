@@ -1,0 +1,57 @@
+
+
+
+
+<%= form_tag(controller: "leads", action: "convert_to_qualified_data", method: "post", class: "convert_to_qualified_data_form") do %>
+  <%= collection_check_boxes(:post, :lead_ids, @leads, :id, :name) do |b| %>
+    <% b.label(:"data-value" => b.value) { b.check_box + b.text } %>
+  <% end %>
+
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Leads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leads.each do |lead| %>
+      <tr>
+        <td><%= lead.name %></td>
+        <!-- just gonna display minimum information here -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h1>Qualified Leads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @qualified_leads.each do |lead| %>
+      <tr>
+        <td><%= lead.lead_id %></td>
+        <!-- just gonna display minimum information here -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

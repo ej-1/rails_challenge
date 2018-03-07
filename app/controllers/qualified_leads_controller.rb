@@ -1,0 +1,2 @@
+class QualifiedLeadsController < ApplicationController
+end
